@@ -67,9 +67,12 @@ p.card-text {
 .Duration-type {
   background-color: lightsalmon;
 }
+.Reaction-type {
+  background-color: lightskyblue;
+}
 
 .Base {
-  background-color: red;
+  background-color:lightgrey;
 }
 
 .Dominion {
