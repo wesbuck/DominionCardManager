@@ -25,7 +25,7 @@ export default {
   },
   created() {
     axios
-      .get("https://api.gameofboards.com/cardset/")
+      .get("https://dominioncardapi.pythonanywhere.com/cardset/")
       .then(res => this.getCards(res))
       .catch(err => console.log(err));
   },
@@ -43,7 +43,7 @@ export default {
     replaceCard(name) {
       var index = this.cards.findIndex(f => f.card_name === name)
       axios
-        .get("https://api.gameofboards.com/random/")
+        .get("https://dominioncardapi.pythonanywhere.com/random/")
         .then(res => (this.cards.splice(index, 1, res.data)))
         .catch(err => console.log(err));
     },
