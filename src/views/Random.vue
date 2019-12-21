@@ -1,8 +1,9 @@
 <template>
   <div class="card-group">
-    <div class="col mb-4">
-      <Card v-bind="card_data" @replace-card="replaceCard" />
-    </div>
+    <Card 
+      v-bind:card="card_data" 
+      @replace-card="replaceCard" 
+    />
   </div>
 </template>
 
