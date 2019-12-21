@@ -25,7 +25,7 @@ export default {
   },
   created() {
     axios
-      .get("http://api.gameofboards.com/random/")
+      .get("https://api.gameofboards.com/random/")
       .then(res => (this.card_data = res.data))
       .catch(err => console.log(err));
   },
@@ -33,7 +33,7 @@ export default {
     replaceCard(name) {
       console.log(name)
       axios
-        .get("http://api.gameofboards.com/random/")
+        .get("https://api.gameofboards.com/random/")
         .then(res => (this.card_data = res.data))
         .catch(err => console.log(err));
     },
