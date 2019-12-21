@@ -1,18 +1,20 @@
 <template>
-  <div class="card h-100" :class="set_name" style="width: 15.9rem;">
-    <div class="card-header">
-      <h5 class="card-title"><span class="badge badge-secondary">{{cost}}</span> {{card_name}}</h5>
-    </div>
-    <div class="card-body text-center">
-      <p class="card-text" v-html="new_lines(card_text)"></p>
-    </div>
-    <div class="card-footer" :class="formatTypeName(type)">
-        <h6 class="card-subtitle">
-          {{type}}
-          <button type="button" class="close" aria-label="Close" @click="getNewCard(card_name)">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </h6>
+  <div class="col mb-4">
+    <div class="card h-100" :class="set_name" style="width: 15.9rem;">
+      <div class="card-header">
+        <h5 class="card-title"><span class="badge badge-secondary">{{card.cost}}</span> {{card.card_name}}</h5>
+      </div>
+      <div class="card-body text-center">
+        <p class="card-text" v-html="new_lines(card.card_text)"></p>
+      </div>
+      <div class="card-footer" :class="formatTypeName(card.type)">
+          <h6 class="card-subtitle">
+            {{card.type}}
+            <button type="button" class="close" aria-label="Close" @click="getNewCard(card.card_name)">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h6>
+      </div>
     </div>
   </div>
 </template>
@@ -20,7 +22,7 @@
 <script>
 export default {
   name: "Card",
-  props: ["card_name", "type", "cost", "card_text", "set_name"],
+  props: ["card"],
   methods: {
     new_lines: function(text) {
       return text.replace(/\\n/g, "<div style=\"line-height:6px;\">&nbsp</div>").replace(/\\d/g, "<div style=\"border-bottom: 1px solid black; line-height: 12px; margin-bottom: 10px;\">&nbsp</div>");

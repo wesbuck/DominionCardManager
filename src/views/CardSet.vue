@@ -1,8 +1,11 @@
 <template>
   <div class="card-group">
-    <div class="col mb-4" v-bind:key="card.card_name" v-for="card in cards">
-      <Card v-bind="card" @replace-card="replaceCard" />
-    </div>
+    <Card 
+      v-for="card in cards"
+      v-bind:key="card.card_name"
+      v-bind:card="card" 
+      @replace-card="replaceCard" 
+    />
   </div>
 </template>
 
