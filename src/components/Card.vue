@@ -1,6 +1,6 @@
 <template>
   <div class="col mb-4">
-    <div class="card h-100" :class="set_name" style="width: 15.9rem;">
+    <div class="card h-100" :class="card.set_name" style="width: 15.9rem;">
       <div class="card-header">
         <h5 class="card-title"><span class="badge badge-secondary">{{card.cost}}</span> {{card.card_name}}</h5>
       </div>
