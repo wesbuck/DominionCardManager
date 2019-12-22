@@ -1,8 +1,14 @@
 <template>
     <div class="container-xl row">
-        <h1 class="col-sm-8">{{title}}</h1>
+        <h1 class="col-sm-6">{{title}}</h1>
         <ul class="nav nav-pills">
-            <router-link v-bind:key="route.name" v-for="route in this.$router.options.routes" tag="li" class="nav-item" :to="route.path">
+            <router-link 
+                v-for="route in this.$router.options.routes" 
+                v-bind:key="route.name" 
+                tag="li"
+                class="nav-item" 
+                :to="route.path"
+            >
                 <a class="nav-link">{{ route.name }}</a>
             </router-link>
         </ul>
@@ -21,6 +27,7 @@ export default {
 .container-xl {
     background-color: #222831;
     color: #eeeeee;
+    margin-bottom: 16px;
 }
 .nav {
     margin-top: 7px;

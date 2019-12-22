@@ -56,7 +56,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card-group {
-  margin-top: 16px;
-}
 </style>
