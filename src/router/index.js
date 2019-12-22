@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import CardSet from "../views/CardSet.vue";
+import Home from "@/views/Home.vue";
+import List from "@/views/List.vue";
+import CardSet from "@/views/CardSet.vue";
 
 Vue.use(VueRouter);
 
@@ -15,11 +16,19 @@ const routes = [
     },
   },
   {
+    path: "/list",
+    name: "List",
+    component: List,
+    meta: {
+      title: 'List',
+    },
+  },
+  {
     path: "/cardset",
     name: "Card Set",
     component: CardSet,
     meta: {
-      title: 'Get a Random Set of 10 Cards',
+      title: 'Set of 10 Cards',
     },
   },
   {
