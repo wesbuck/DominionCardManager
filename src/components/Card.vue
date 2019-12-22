@@ -10,7 +10,7 @@
       <div class="card-footer" :class="formatTypeName(card.type)">
           <h6 class="card-subtitle">
             {{card.type}}
-            <button type="button" class="close" aria-label="Close" @click="getNewCard(card.card_name)">
+            <button v-if="toggles" type="button" class="close" aria-label="Close" @click="getNewCard(card.card_name)">
               <span aria-hidden="true">&times;</span>
             </button>
           </h6>
@@ -22,7 +22,10 @@
 <script>
 export default {
   name: "Card",
-  props: ["card"],
+  props: {
+    card: Object,
+    toggles: Boolean,
+  },
   methods: {
     new_lines: function(text) {
       return text.replace(/\\n/g, "<div style=\"line-height:6px;\">&nbsp</div>").replace(/\\d/g, "<div style=\"border-bottom: 1px solid black; line-height: 12px; margin-bottom: 10px;\">&nbsp</div>");

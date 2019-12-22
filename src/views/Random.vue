@@ -2,6 +2,7 @@
   <div class="card-group">
     <Card 
       v-bind:card="card_data" 
+      v-bind:toggles="true"
       @replace-card="replaceCard" 
     />
   </div>

@@ -3,7 +3,8 @@
     <Card 
       v-for="card in cards"
       v-bind:key="card.card_name"
-      v-bind:card="card" 
+      v-bind:card="card"
+      v-bind:toggles="true"
       @replace-card="replaceCard" 
     />
   </div>
