@@ -1,5 +1,6 @@
+//eslint-disable-next-line
 module.exports = {
   presets: [
-    '@vue/cli-plugin-babel/preset'
-  ]
+    '@vue/cli-plugin-babel/preset',
+  ],
 }
