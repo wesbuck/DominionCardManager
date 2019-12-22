@@ -1,6 +1,18 @@
 {
   "name": "dominion-card-manager",
+  "description": "Works with DominionCardAPI to manage Dominion cards.",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wesbuck/DominionCardManager.git"
+  },
+  "keywords": [],
+  "author": "Wes Buck",
+  "license" : "MIT",
+  "bugs": {
+    "url": "https://github.com/wesbuck/DominionCardManager/issues"
+  },
+  "homepage": "https://github.com/wesbuck/DominionCardManager",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
