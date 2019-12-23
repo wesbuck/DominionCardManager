@@ -1,9 +1,9 @@
 <template>
   <div class="card-group">
-    <Card 
-      v-bind:card="card_data" 
+    <Card
+      v-bind:card="card_data"
       v-bind:toggles="true"
-      @replace-card="replaceCard" 
+      @replace-card="replaceCard"
     />
   </div>
 </template>
@@ -19,19 +19,19 @@ export default {
     Card,
     Header,
   },
-  data() {
+  data () {
     return {
       card_data: [],
     };
   },
-  created() {
+  created () {
     axios
       .get("https://api.gameofboards.com/random/")
       .then(res => (this.card_data = res.data))
       .catch(err => console.log(err));
   },
   methods: {
-    replaceCard() {
+    replaceCard () {
       axios
         .get("https://api.gameofboards.com/random/")
         .then(res => (this.card_data = res.data))

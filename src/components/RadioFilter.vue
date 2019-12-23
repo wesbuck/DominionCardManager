@@ -55,7 +55,7 @@ export default {
     filters: Array,
     name: String,
   },
-  data() {
+  data () {
     return {
       chosen: "radio-all",
     }
@@ -67,7 +67,7 @@ export default {
     },
     removeFilter: function (event) {
       if (event.target.checked)
-        this.$emit('remove-filter',)
+        this.$emit('remove-filter')
     },
   },
 };

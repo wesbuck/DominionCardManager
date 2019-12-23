@@ -1,19 +1,35 @@
 <template>
   <div class="col mb-4">
-    <div class="card h-100" :class="card.set_name" style="width: 15.9rem;">
+    <div
+      class="card h-100"
+      :class="card.set_name"
+      style="width: 15.9rem;"
+    >
       <div class="card-header">
         <h5 class="card-title"><span class="badge badge-secondary">{{card.cost}}</span> {{card.card_name}}</h5>
       </div>
       <div class="card-body text-center">
-        <p class="card-text" v-html="new_lines(card.card_text)"></p>
+        <p
+          class="card-text"
+          v-html="new_lines(card.card_text)"
+        ></p>
       </div>
-      <div class="card-footer" :class="formatTypeName(card.type)">
-          <h6 class="card-subtitle">
-            {{card.type}}
-            <button v-if="toggles" type="button" class="close" aria-label="Close" @click="getNewCard(card.card_name)">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </h6>
+      <div
+        class="card-footer"
+        :class="formatTypeName(card.type)"
+      >
+        <h6 class="card-subtitle">
+          {{card.type}}
+          <button
+            v-if="toggles"
+            type="button"
+            class="close"
+            aria-label="Close"
+            @click="getNewCard(card.card_name)"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </h6>
       </div>
     </div>
   </div>
@@ -27,20 +43,19 @@ export default {
     toggles: Boolean,
   },
   methods: {
-    new_lines(text) {
+    new_lines (text) {
       return text.replace(/\\n/g, "<div style=\"line-height:6px;\">&nbsp</div>").replace(/\\d/g, "<div style=\"border-bottom: 1px solid black; line-height: 12px; margin-bottom: 10px;\">&nbsp</div>");
     },
-    getNewCard(name) {
+    getNewCard (name) {
       this.$emit('replace-card', name)
     },
-    formatTypeName(type) {
+    formatTypeName (type) {
       var dur = type.indexOf("Duration");
-      if(dur > 0)
-      {
+      if (dur > 0) {
         return "Duration-type"; // account for "Action-Duration"
       }
       var n = type.indexOf('-');
-      return type.substring(0, n != -1 ? n : type.length).trim()+"-type";
+      return type.substring(0, n != -1 ? n : type.length).trim() + "-type";
     },
   },
 };
@@ -48,10 +63,10 @@ export default {
 
 <style scoped>
 h5.card-title {
-  margin-bottom:0px;
+  margin-bottom: 0px;
 }
 h6.card-subtitle {
-  margin-top:0px;
+  margin-top: 0px;
 }
 button.close {
   color: red;
@@ -77,7 +92,7 @@ p.card-text {
 }
 
 .Base {
-  background-color:lightgrey;
+  background-color: lightgrey;
 }
 
 .Dominion {

@@ -5,12 +5,12 @@
       <RadioFilter
         v-bind:filters="allsets"
         v-bind:name="'allsets'"
-        @update-filter="updateFilter" 
-        @remove-filter="fetchAllCards" 
+        @update-filter="updateFilter"
+        @remove-filter="fetchAllCards"
       />
     </div>
     <div class="card-group col-sm-10">
-      <Card 
+      <Card
         v-for="card in cards"
         v-bind:key="card.card_name"
         v-bind:card="card"
@@ -32,33 +32,33 @@ export default {
     RadioFilter,
     Header,
   },
-  data() {
+  data () {
     return {
       cards: [],
       allsets: [],
     };
   },
-  created() {
+  created () {
     axios
       .get("https://api.gameofboards.com/cards/")
       .then(res => this.setupCards(res))
       .catch(err => console.log(err));
   },
   methods: {
-    getCards(res) {
+    getCards (res) {
       this.cards = res.data;
     },
-    setupCards(res) {
+    setupCards (res) {
       this.getCards(res);
       this.allsets = [...new Set(res.data.map(card => card.set_name))];
     },
-    updateFilter(name) {
+    updateFilter (name) {
       axios
-        .get("https://api.gameofboards.com/cards/?set_name="+name)
+        .get("https://api.gameofboards.com/cards/?set_name=" + name)
         .then(res => this.getCards(res))
         .catch(err => console.log(err));
     },
-    fetchAllCards() {
+    fetchAllCards () {
       axios
         .get("https://api.gameofboards.com/cards/")
         .then(res => this.getCards(res))

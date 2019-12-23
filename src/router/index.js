@@ -12,7 +12,7 @@ const routes = [
     name: "Home",
     component: Home,
     meta: {
-      title: 'Home',
+      title: "Home",
     },
   },
   {
@@ -20,7 +20,7 @@ const routes = [
     name: "List",
     component: List,
     meta: {
-      title: 'List',
+      title: "List",
     },
   },
   {
@@ -28,14 +28,14 @@ const routes = [
     name: "Card Set",
     component: CardSet,
     meta: {
-      title: 'Set of 10 Cards',
+      title: "Set of 10 Cards",
     },
   },
   {
     path: "/random",
     name: "Random Card",
     meta: {
-      title: 'Get a Random Card',
+      title: "Get a Random Card",
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

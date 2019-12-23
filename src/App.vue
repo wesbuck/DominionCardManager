@@ -5,7 +5,7 @@
         <Header v-bind:title="this.$route.meta.title" />
       </div>
       <div class="row">
-        <router-view/>
+        <router-view />
       </div>
     </div>
   </div>
@@ -23,5 +23,4 @@ export default {
 </script>
 
 <style>
-
 </style>
