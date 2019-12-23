@@ -1,11 +1,12 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from '@/App.vue'
 import router from '@/router'
 import './../node_modules/jquery/dist/jquery.slim';
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './../node_modules/bootstrap/dist/js/bootstrap.bundle';
 
 Vue.config.productionTip = false
+Vue.prototype.$endpointURL = 'http://api.gameofboards.com'
 
 new Vue({
   router,

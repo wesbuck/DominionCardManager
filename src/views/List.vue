@@ -40,7 +40,7 @@ export default {
   },
   created () {
     axios
-      .get("https://api.gameofboards.com/cards/")
+      .get(this.$endpointURL+"/cards/")
       .then(res => this.setupCards(res))
       .catch(err => console.log(err));
   },
@@ -54,13 +54,13 @@ export default {
     },
     updateFilter (name) {
       axios
-        .get("https://api.gameofboards.com/cards/?set_name=" + name)
+        .get(this.$endpointURL+"/cards/?set_name=" + name)
         .then(res => this.getCards(res))
         .catch(err => console.log(err));
     },
     fetchAllCards () {
       axios
-        .get("https://api.gameofboards.com/cards/")
+        .get(this.$endpointURL+"/cards/")
         .then(res => this.getCards(res))
         .catch(err => console.log(err));
     },
