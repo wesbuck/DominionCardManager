@@ -20,7 +20,7 @@ const routes = [
     name: "List",
     component: List,
     meta: {
-      title: "List",
+      title: "List Cards",
     },
   },
   {
@@ -33,15 +33,15 @@ const routes = [
   },
   {
     path: "/random",
-    name: "Random Card",
+    name: "Random",
     meta: {
-      title: "Get a Random Card",
+      title: "A Random Card",
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Random.vue"),
+      import(/* webpackChunkName: "about" */ "@/views/Random.vue"),
   },
 ];
 
