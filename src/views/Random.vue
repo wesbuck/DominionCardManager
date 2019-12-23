@@ -26,14 +26,14 @@ export default {
   },
   created () {
     axios
-      .get("https://api.gameofboards.com/random/")
+      .get(this.$endpointURL+"/random/")
       .then(res => (this.card_data = res.data))
       .catch(err => console.log(err));
   },
   methods: {
     replaceCard () {
       axios
-        .get("https://api.gameofboards.com/random/")
+        .get(this.$endpointURL+"/random/")
         .then(res => (this.card_data = res.data))
         .catch(err => console.log(err));
     },

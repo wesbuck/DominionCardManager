@@ -28,7 +28,7 @@ export default {
   },
   created () {
     axios
-      .get("https://api.gameofboards.com/cardset/")
+      .get(this.$endpointURL+"/cardset/")
       .then(res => this.getCards(res))
       .catch(err => console.log(err));
   },
@@ -46,7 +46,7 @@ export default {
     replaceCard (name) {
       var index = this.cards.findIndex(f => f.card_name === name)
       axios
-        .get("https://api.gameofboards.com/random/")
+        .get(this.$endpointURL+"/random/")
         .then(res => (this.cards.splice(index, 1, res.data)))
         .catch(err => console.log(err));
     },
