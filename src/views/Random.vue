@@ -15,7 +15,6 @@ import Header from "@/components/Header.vue";
 
 export default {
   name: "Random",
-  props: "card_data",
   components: {
     Card,
     Header,
@@ -32,8 +31,7 @@ export default {
       .catch(err => console.log(err));
   },
   methods: {
-    replaceCard(name) {
-      console.log(name)
+    replaceCard() {
       axios
         .get("https://api.gameofboards.com/random/")
         .then(res => (this.card_data = res.data))

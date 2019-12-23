@@ -27,7 +27,7 @@ export default {
     toggles: Boolean,
   },
   methods: {
-    new_lines: function(text) {
+    new_lines(text) {
       return text.replace(/\\n/g, "<div style=\"line-height:6px;\">&nbsp</div>").replace(/\\d/g, "<div style=\"border-bottom: 1px solid black; line-height: 12px; margin-bottom: 10px;\">&nbsp</div>");
     },
     getNewCard(name) {

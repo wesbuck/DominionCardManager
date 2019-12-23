@@ -17,7 +17,6 @@ import Header from "@/components/Header.vue";
 
 export default {
   name: "CardSet",
-  props: "cards",
   components: {
     Card,
     Header,
