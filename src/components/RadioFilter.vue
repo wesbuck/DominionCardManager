@@ -1,50 +1,55 @@
 <template>
-  <div class="input-group">
+
+  <div class="card">
+    <div
+      class="card-header"
+      :id="'heading'+name"
+    >
+      <h2 class="mb-0">
+        <button
+          class="btn btn-link collapsed sidebar-h2"
+          type="button"
+          data-toggle="collapse"
+          :data-target="'#collapse'+name"
+          aria-expanded="true"
+          :aria-controls="'collapse'+name"
+        >
+          Choose {{name.charAt(0).toUpperCase()+name.slice(1)}}
+        </button>
+      </h2>
+    </div>
 
     <div
-      class="input-group-prepend"
-      v-for="filter in filters"
-      v-bind:key="filter"
+      :id="'collapse'+name"
+      class="collapse"
+      :aria-labelledby="'heading'+name"
+      data-parent="#filterSidebar"
     >
-      <div class="input-group-text">
-        <input
-          type="radio"
-          :aria-label="'Display Dominion cards in the '+filter+' set.'"
-          :name="name"
-          :id="'radio-' + filter"
-          :value="'radio-' + filter"
-          v-model="chosen"
-          v-on:click="applyFilter(filter, $event)"
-        >
-        <label
-          class="col-form-label"
-          :for="'radio-' + filter"
-        >
-          {{ filter }}
-        </label>
-      </div>
-    </div>
 
-    <div class="input-group-prepend">
-      <div class="input-group-text">
-        <input
-          type="radio"
+      <div
+        class="card-body list-group list-group-flush"
+        style="padding-right:0; margin-right:0"
+      >
+        <a
+          class="list-group-item list-group-item-action"
+          v-bind:class="{ active: ( chosen == 'All' ) }"
           aria-label="Show all Dominion cards."
-          :name="name"
-          id="radio-all"
-          value="radio-all"
-          v-model="chosen"
-          v-on:click="removeFilter($event)"
-        >
-        <label
-          class="col-form-label"
-          for="radio-all"
+          v-on:click="removeFilter()"
         >
           All
-        </label>
+        </a>
+        <a
+          class="list-group-item list-group-item-action"
+          v-bind:class="{ active: ( filter == chosen ) }"
+          :aria-label="'Display Dominion cards of this '+filter+'.'"
+          v-for="filter in filters"
+          v-bind:key="filter"
+          v-on:click="applyFilter(filter)"
+        >
+          {{ filter }}
+        </a>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -57,25 +62,36 @@ export default {
   },
   data () {
     return {
-      chosen: "radio-all",
+      chosen: "All",
     }
   },
   methods: {
-    applyFilter: function (value, event) {
-      if (event.target.checked)
-        this.$emit('update-filter', value)
+    applyFilter (value) {
+      this.chosen = value;
+      this.$emit('update-filter', value);
     },
-    removeFilter: function (event) {
-      if (event.target.checked)
-        this.$emit('remove-filter')
+    removeFilter () {
+      this.chosen = "All";
+      this.$emit('remove-filter')
     },
   },
 };
 </script>
 
-<style scoped>
-.col-form-label {
-  margin-left: 4px;
-  margin-right: 8px;
+<style scoped lang="scss">
+.sidebar-h2 {
+  text-align: left;
+  font-size: 18px;
+  color: black;
+}
+.btn {
+  padding: 0;
+}
+.list-group-item,
+.card-header {
+  padding: 0.375rem 0.75rem;
+}
+.card-body {
+  padding: 0;
 }
 </style>

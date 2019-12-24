@@ -1,33 +1,32 @@
 <template>
-  <div class="row">
-    <div class="col-sm-2">
-
-      <h4>Choose Set:</h4>
+  <div class="row w-100">
+    <div
+      class="accordion col-2 dcm-sidebar"
+      id="filterSidebar"
+    >
       <RadioFilter
         v-bind:filters="allsets"
-        v-bind:name="'allsets'"
+        v-bind:name="'set'"
         @update-filter="updateSetFilter"
         @remove-filter="removeSetFilter"
       />
 
-      <h4>Choose Cost:</h4>
       <RadioFilter
         v-bind:filters="allcosts"
-        v-bind:name="'allcosts'"
+        v-bind:name="'cost'"
         @update-filter="updateCostFilter"
         @remove-filter="removeCostFilter"
       />
 
-      <h4>Choose Type:</h4>
       <RadioFilter
         v-bind:filters="alltypes"
-        v-bind:name="'alltypes'"
+        v-bind:name="'type'"
         @update-filter="updateTypeFilter"
         @remove-filter="removeTypeFilter"
       />
 
     </div>
-    <div class="card-group col-sm-10">
+    <div class="col-10 text-center card-group">
       <Card
         v-for="card in cards"
         v-bind:key="card.card_name"
@@ -63,7 +62,7 @@ export default {
   },
   created () {
     axios
-      .get(this.$endpointURL+"/cards/")
+      .get(this.$endpointURL + "/cards/")
       .then(res => this.setupCards(res))
       .catch(err => console.log(err));
   },
@@ -74,7 +73,7 @@ export default {
     setupCards (res) {
       this.getCards(res);
       this.allsets = [...new Set(res.data.map(card => card.set_name))].sort();
-      this.allcosts = [...new Set(res.data.map(card => card.cost))].sort(function(a, b){return a.replace( /\D/g, '') - b.replace( /\D/g, '')}); //strip non-numeric & sort
+      this.allcosts = [...new Set(res.data.map(card => card.cost))].sort(function (a, b) { return a.replace(/\D/g, '') - b.replace(/\D/g, '') }); //strip non-numeric & sort
       this.alltypes = [...new Set(res.data.map(card => card.type))].sort();
     },
     updateSetFilter (name) {
@@ -112,4 +111,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.dcm-sidebar {
+  -ms-flex: 0 0 200px;
+  flex: 0 0 200px;
+}
 </style>
