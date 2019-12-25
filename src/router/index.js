@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
 import List from "@/views/List.vue";
+import Search from "@/views/Search.vue";
 import CardSet from "@/views/CardSet.vue";
 
 Vue.use(VueRouter);
@@ -21,6 +22,14 @@ const routes = [
     component: List,
     meta: {
       title: "List Cards",
+    },
+  },
+  {
+    path: "/search",
+    name: "Search",
+    component: Search,
+    meta: {
+      title: "Search Cards",
     },
   },
   {
