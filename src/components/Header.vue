@@ -19,15 +19,53 @@
         id="navbarSupportedContent"
       >
         <ul class="navbar-nav mr-auto">
+
           <router-link
             v-for="route in this.$router.options.routes"
             v-bind:key="route.name"
+            v-if="route.name != 'Expansion'"
             tag="li"
             class="nav-item"
             :to="route.path"
           >
             <a class="nav-link">{{ route.name }}</a>
           </router-link>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Expansions
+            </a>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="navbarDropdown"
+            >
+              <a
+                class="dropdown-item"
+                href="#/expansion/8/"
+              >Base Cards</a>
+              <div class="dropdown-divider"></div>
+              <a
+                v-for="set in set_list"
+                v-bind:key="set"
+                class="dropdown-item"
+                :href="'#/expansion/'+set[1]+'/'"
+              >{{set[0]}}</a>
+              <div class="dropdown-divider"></div>
+              <a
+                class="dropdown-item"
+                href="#/expansion/0/"
+              >Promo Cards</a>
+            </div>
+          </li>
+          
         </ul>
       </div>
     </nav>
@@ -44,6 +82,21 @@
 export default {
   name: "Header",
   props: { title: String },
+  data () {
+    return {
+      set_list: [ ['Dominion', 1], 
+                  ['Intrigue', 2],
+                  ['Seaside', 3], 
+                  ['Alchemy', 4], 
+                  ['Prosperity', 5], 
+                  ['Cornucopia', 6], 
+                  ['Hinterlands', 7], 
+                  ['Dark Ages', 9], 
+                  ['Guilds', 10], 
+                  ['Adventures', 11], 
+                  ['Empires', 12]/*, 'Nocturne', 'Renaissance'*/],
+    }
+  },
 };
 </script>
 
