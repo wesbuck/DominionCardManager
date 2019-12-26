@@ -12,7 +12,7 @@
     <div class="input-group-append">
       
       <button
-        class="btn btn-outline-secondary dropdown-toggle"
+        class="btn btn-outline-secondary dropdown-toggle bg-dark text-white"
         type="button"
         data-toggle="dropdown"
         aria-haspopup="true"
@@ -59,7 +59,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form-control {
-  margin: 0;
-}
 </style>

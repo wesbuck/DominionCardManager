@@ -1,5 +1,5 @@
 <template>
-  <div class="row w-100">
+  <div class="row container-xl w-100">
     <div
       class="accordion col-2 dcm-sidebar"
       id="filterSidebar"

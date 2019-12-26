@@ -1,12 +1,10 @@
 <template>
-  <div class="home">
-    <p>Welcome to the app</p>
+  <div class="container-xl">
+    <p>Welcome to Dominion Card Manager. Please select an option above.</p>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
   name: 'home',
 }

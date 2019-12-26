@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-100">
     <SearchBar @search-cards="searchCards" />
     <div class="card-group">
       <Card
@@ -90,7 +90,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form-control {
-  margin: 0;
-}
 </style>

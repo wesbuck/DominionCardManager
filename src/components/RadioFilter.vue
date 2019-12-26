@@ -2,19 +2,20 @@
 
   <div class="card">
     <div
-      class="card-header"
+      class="card-header pt-0 px-3 bg-dark"
       :id="'heading'+name"
     >
       <h2 class="mb-0">
         <button
-          class="btn btn-link collapsed sidebar-h2"
+          class="btn btn-link collapsed sidebar-h2 p-0"
           type="button"
           data-toggle="collapse"
           :data-target="'#collapse'+name"
           aria-expanded="true"
           :aria-controls="'collapse'+name"
         >
-          Choose {{name.charAt(0).toUpperCase()+name.slice(1)}}
+          <span class="choose-lg">Choose {{name.charAt(0).toUpperCase()+name.slice(1)}}</span>
+          <span class="choose-sm">{{name.charAt(0).toUpperCase()+name.slice(1)}}</span>
         </button>
       </h2>
     </div>
@@ -27,11 +28,10 @@
     >
 
       <div
-        class="card-body list-group list-group-flush"
-        style="padding-right:0; margin-right:0"
+        class="card-body list-group list-group-flush p-0"
       >
         <a
-          class="list-group-item list-group-item-action"
+          class="list-group-item list-group-item-action top-item px-3 py-1"
           v-bind:class="{ active: ( chosen == 'All' ) }"
           aria-label="Show all Dominion cards."
           v-on:click="removeFilter()"
@@ -39,7 +39,7 @@
           All
         </a>
         <a
-          class="list-group-item list-group-item-action"
+          class="list-group-item list-group-item-action px-3 py-1"
           v-bind:class="{ active: ( filter == chosen ) }"
           :aria-label="'Display Dominion cards of this '+filter+'.'"
           v-for="filter in filters"
@@ -78,20 +78,37 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+@import "bootstrap";
 .sidebar-h2 {
-  text-align: left;
+  color: white;
   font-size: 18px;
-  color: black;
+  text-decoration: none;
+
+  &:hover {
+    color: $gray-500;
+    text-decoration: none;
+  }
 }
-.btn {
-  padding: 0;
+
+.active {
+  background-color: $gray-400 !important;
+  border-color: $gray-400 !important;
+  color: $gray-900 !important;
 }
-.list-group-item,
-.card-header {
-  padding: 0.375rem 0.75rem;
+
+.choose-lg {
+  display: block;
 }
-.card-body {
-  padding: 0;
+.choose-sm {
+  display: none;
+}
+@media(max-width: 1068px) {
+  .choose-lg {
+    display: none;
+  }
+  .choose-sm {
+    display: block;
+  }
 }
 </style>
