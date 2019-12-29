@@ -35,7 +35,7 @@ export default {
   methods: {
     updateCards(expansionId) {
         axios
-        .get(this.$endpointURL + "/cards/?set_num=" + expansionId)
+        .get(this.$endpointURL + "/cards/?set_name=" + expansionId)
         .then(res => this.cards = res.data)
         .catch(err => console.log(err));
     },

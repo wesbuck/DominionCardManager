@@ -1,8 +1,12 @@
 <template>
   <div class="w-100 mb-2">
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <span class="navbar-brand mb-0 h1">Dominion Card Manager</span>
+      
+      <a
+        class="navbar-brand"
+        href="#/"
+      >Dominion Card Manager</a>
+
       <button
         class="navbar-toggler"
         type="button"
@@ -14,22 +18,23 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div
         class="collapse navbar-collapse"
         id="navbarSupportedContent"
       >
         <ul class="navbar-nav mr-auto">
 
-          <router-link
-            v-for="route in this.$router.options.routes"
-            v-bind:key="route.name"
-            v-if="route.name != 'Expansion'"
-            tag="li"
+          <li
+            v-for="name in this.main_links"
+            v-bind:key="name"
             class="nav-item"
-            :to="route.path"
           >
-            <a class="nav-link">{{ route.name }}</a>
-          </router-link>
+            <a
+              class="nav-link"
+              :href="'#/'+name.replace(' ','')+'/'"
+            >{{ name }}</a>
+          </li>
 
           <li class="nav-item dropdown">
             <a
@@ -49,30 +54,34 @@
             >
               <a
                 class="dropdown-item"
-                href="#/expansion/8/"
+                href="#/expansion/Base Cards/"
               >Base Cards</a>
               <div class="dropdown-divider"></div>
               <a
                 v-for="set in set_list"
                 v-bind:key="set"
                 class="dropdown-item"
-                :href="'#/expansion/'+set[1]+'/'"
-              >{{set[0]}}</a>
+                :href="'#/expansion/'+set+'/'"
+              >{{set}}</a>
               <div class="dropdown-divider"></div>
               <a
                 class="dropdown-item"
-                href="#/expansion/0/"
+                href="#/expansion/Promo/"
               >Promo Cards</a>
             </div>
           </li>
-          
+
         </ul>
       </div>
     </nav>
 
     <h2
       class="p-2 px-2"
-      v-if="title != 'Home'"
+      v-if="title == 'Expansion'"
+    >Expansion: {{ this.$route.params.expansionId }}</h2>
+    <h2
+      class="p-2 px-2"
+      v-else-if="title != 'Home'"
     >{{ title }}</h2>
 
   </div>
@@ -84,18 +93,28 @@ export default {
   props: { title: String },
   data () {
     return {
-      set_list: [ ['Dominion', 1], 
-                  ['Intrigue', 2],
-                  ['Seaside', 3], 
-                  ['Alchemy', 4], 
-                  ['Prosperity', 5], 
-                  ['Cornucopia', 6], 
-                  ['Hinterlands', 7], 
-                  ['Dark Ages', 9], 
-                  ['Guilds', 10], 
-                  ['Adventures', 11], 
-                  ['Empires', 12]/*, 'Nocturne', 'Renaissance'*/],
+      main_links: ['List',
+        'Search',
+        'Card Set',
+        'Random'],
+      set_list: ['Dominion',
+        'Intrigue',
+        'Seaside',
+        'Alchemy',
+        'Prosperity',
+        'Cornucopia',
+        'Hinterlands',
+        'Dark Ages',
+        'Guilds',
+        'Adventures',
+        'Empires'/*, 'Nocturne', 'Renaissance'*/],
     }
+  },
+  methods: {
+    getMainNavList () {
+      console.log(this.$router);
+      this.$router.options.routes.splice(this.$router.options.routes.findIndex(element => element.name == "Expansion"), 1);
+    },
   },
 };
 </script>
