@@ -35,18 +35,11 @@ export default {
   methods: {
     getCards (res) {
       this.cards = res.data;
-      /*
-            var i;
-            for (i = 0; i < this.cards.length; i++) {
-              while(this.cards[i].set_num === 8 || this.cards[i].type === "Event" || this.cards[i].type === "Landmark") {
-                this.replaceCard(this.cards[i].card_name); //ensure no cards from Base Set (like coins, victory, etc)
-              }
-            }*/
     },
     replaceCard (name) {
       var index = this.cards.findIndex(f => f.card_name === name)
       axios
-        .get(this.$endpointURL+"/random/")
+        .get(this.$endpointURL+"/kingdom/")
         .then(res => (this.cards.splice(index, 1, res.data)))
         .catch(err => console.log(err));
     },
