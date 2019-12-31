@@ -1,7 +1,7 @@
 <template>
   <div class="w-100 mb-2">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      
+
       <a
         class="navbar-brand"
         href="#/"
@@ -107,7 +107,9 @@ export default {
         'Dark Ages',
         'Guilds',
         'Adventures',
-        'Empires'/*, 'Nocturne', 'Renaissance'*/],
+        'Empires',
+        'Nocturne',
+        'Renaissance'],
     }
   },
   methods: {
