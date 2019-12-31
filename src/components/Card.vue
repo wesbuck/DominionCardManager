@@ -5,7 +5,10 @@
       :class="card.set_name"
       style="width: 15.9rem;"
     >
-      <div class="card-header">
+      <div
+        class="card-header"
+        align="left"
+      >
         <h5 class="card-title"><span class="badge badge-secondary">{{card.cost}}</span> {{card.card_name}}</h5>
       </div>
       <div class="card-body text-center">
@@ -17,6 +20,7 @@
       <div
         class="card-footer"
         :class="formatTypeName(card.type)"
+        align="left"
       >
         <h6 class="card-subtitle">
           {{card.type}}
@@ -61,7 +65,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "@/assets/main.scss";
+
 h5.card-title {
   margin-bottom: 0px;
 }
@@ -76,65 +82,95 @@ p.card-text {
 }
 
 .Action-type {
-  background-color: darkgrey;
+  background-color: $action-type-color;
+}
+.Event-type {
+  background-color: $event-type-color;
 }
 .Treasure-type {
-  background-color: goldenrod;
+  background-color: $treasure-type-color;
+}
+.Boon-type {
+  background-color: $boon-type-color;
 }
 .Victory-type {
-  background-color: lightgreen;
+  background-color: $victory-type-color;
+}
+.Landmark-type {
+  background-color: $landmark-type-color;
 }
 .Duration-type {
-  background-color: lightsalmon;
+  background-color: $duration-type-color;
+}
+.Artifact-type {
+  background-color: $artifact-type-color;
 }
 .Reaction-type {
-  background-color: lightskyblue;
+  background-color: $reaction-type-color;
+}
+.Curse-type {
+  background-color: $curse-type-color;
+  color: white;
+}
+.Hex-type {
+  background-color: $hex-type-color;
+  color: white;
+}
+.Night-type {
+  background-color: $night-type-color;
+  color: white;
+}
+.Project-type {
+  background-color: $project-type-color;
+}
+.State-type {
+  background-color: $state-type-color;
 }
 
 .Base {
-  background-color: lightgrey;
+  border: 2px solid $base-cards-color;
 }
 
 .Dominion {
-  border-color: red;
+  border: 2px solid $dominion-set-color;
 }
 .Intrigue {
-  border-color: blue;
+  border: 2px solid $intrigue-set-color;
 }
 .Seaside {
-  border-color: orange;
+  border: 2px solid $seaside-set-color;
 }
 .Alchemy {
-  border-color: purple;
+  border: 2px solid $alchemy-set-color;
 }
 .Prosperity {
-  border-color: darkgreen;
+  border: 2px solid $prosperity-set-color;
 }
 .Cornucopia {
-  border-color: yellow;
+  border: 2px solid $cornucopia-set-color;
 }
 .Hinterlands {
-  border-color: chartreuse;
+  border: 2px solid $hinterlands-set-color;
 }
 .Dark {
-  border-color: orangered;
+  border: 2px solid $dark-set-color;
 }
 .Guilds {
-  border-color: palevioletred;
+  border: 2px solid $guilds-set-color;
 }
 .Adventures {
-  border-color: darkgrey;
+  border: 2px solid $adventures-set-color;
 }
 .Empires {
-  border-color: goldenrod;
+  border: 2px solid $empires-set-color;
 }
 .Nocturne {
-  border-color: darkblue;
+  border: 2px solid $nocturne-set-color;
 }
 .Renaissance {
-  border-color: teal;
+  border: 2px solid $renaissance-set-color;
 }
 .Promo {
-  border-color: black;
+  border: 2px solid $promo-set-color;
 }
 </style>

@@ -1,0 +1,43 @@
+@import "bootstrap";
+
+$base-cards-color: darkgray;
+
+// Set Colors:
+$dominion-set-color: red;
+$intrigue-set-color: blue;
+$seaside-set-color: orange;
+$alchemy-set-color: purple;
+$prosperity-set-color: darkgreen;
+$cornucopia-set-color: yellow;
+$hinterlands-set-color: chartreuse;
+$dark-set-color: orangered;
+$guilds-set-color: palevioletred;
+$adventures-set-color: $gray-500;
+$empires-set-color: goldenrod;
+$nocturne-set-color: darkblue;
+$renaissance-set-color: teal;
+$promo-set-color: $gray-900;
+
+// Type Colors:
+$action-type-color: $gray-400;
+$event-type-color: $action-type-color;
+
+$treasure-type-color: gold;
+$boon-type-color: $treasure-type-color;
+
+$victory-type-color: lightgreen;
+$landmark-type-color: $victory-type-color;
+
+$duration-type-color: orange;
+$artifact-type-color: $duration-type-color;
+
+$curse-type-color: purple;
+$hex-type-color: $curse-type-color;
+
+$reaction-type-color: lightskyblue;
+
+$project-type-color: salmon;
+
+$state-type-color: white;
+
+$night-type-color: $gray-900;
