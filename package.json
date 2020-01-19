@@ -13,7 +13,7 @@
     "url": "https://github.com/wesbuck/DominionCardManager/issues"
   },
   "homepage": "https://github.com/wesbuck/DominionCardManager",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

@@ -1,4 +1,17 @@
-# dominion-card-manager
+# Dominion Card Manager
+
+[![GitHub License](https://img.shields.io/github/license/wesbuck/DominionCardManager)](https://opensource.org/licenses/MIT)
+[![GitHub top language](https://img.shields.io/github/languages/top/wesbuck/DominionCardManager)](https://github.com/wesbuck/DominionCardManager/search?l=vue)
+[![Build Status](https://travis-ci.org/wesbuck/DominionCardManager.svg?branch=master)](https://travis-ci.org/wesbuck/DominionCardManager)
+
+Current features provided by this app:
+ * View [cards from any expansion](https://dominion-card-manager.herokuapp.com/#/expansion/Dominion/), as well as base and promo cards
+ * Get a [set of 10 cards](https://dominion-card-manager.herokuapp.com/#/CardSet/), with the ability to replace individual cards
+ * Get a [random card](https://dominion-card-manager.herokuapp.com/#/Random/)
+ * Filter a [list of cards](https://dominion-card-manager.herokuapp.com/#/List/) by choosing Set, Cost, and Type
+ * [Search card](https://dominion-card-manager.herokuapp.com/#/Search/) name, text, cost, type, or all of the above for an inputted string
+
+This app is built with Vue, SASS, Bootstrap, and more. Data is intended to be powered by [DominionCardAPI](https://github.com/wesbuck/DominionCardAPI/).
 
 ## Project setup
 ```
