@@ -11,7 +11,7 @@ Current features provided by this app:
  * Filter a [list of cards](https://dominion-card-manager.herokuapp.com/#/List/) by choosing Set, Cost, and Type
  * [Search card](https://dominion-card-manager.herokuapp.com/#/Search/) name, text, cost, type, or all of the above for an inputted string
 
-This app is built with Vue, SASS, Bootstrap, and more. Data is intended to be powered by [DominionCardAPI](https://github.com/wesbuck/DominionCardAPI/).
+This app is built with Vue, SASS, Bootstrap, and more. Data is intended to be provided by [DominionCardAPI](https://github.com/wesbuck/DominionCardAPI/).
 
 ## Project setup
 ```
