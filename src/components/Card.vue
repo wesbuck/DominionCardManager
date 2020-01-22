@@ -5,7 +5,7 @@
       :class="card.set_name"
     >
       <div
-        class="card-header"
+        class="card-header text-left"
         :class="formatTypeName(card.type)"
       >
         <div class="row">
