@@ -40,14 +40,12 @@
 import axios from "axios";
 import Card from "@/components/Card.vue";
 import RadioFilter from "@/components/RadioFilter.vue";
-import Header from "@/components/Header.vue";
 
 export default {
   name: "List",
   components: {
     Card,
     RadioFilter,
-    Header,
   },
   data () {
     return {

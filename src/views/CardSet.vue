@@ -13,13 +13,11 @@
 <script>
 import axios from "axios";
 import Card from "@/components/Card.vue";
-import Header from "@/components/Header.vue";
 
 export default {
   name: "CardSet",
   components: {
     Card,
-    Header,
   },
   data () {
     return {

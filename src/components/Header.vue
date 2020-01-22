@@ -71,6 +71,20 @@
             </div>
           </li>
 
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#/CustomSet/"
+            >
+              Custom Set
+              <span
+                v-if="numCards"
+                class="badge badge-success"
+              >
+                {{ numCards }}
+              </span>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -88,9 +102,12 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Header",
   props: { title: String },
+  computed: mapGetters(["numCards"]),
   data () {
     return {
       main_links: ['List',
@@ -111,12 +128,6 @@ export default {
         'Nocturne',
         'Renaissance'],
     }
-  },
-  methods: {
-    getMainNavList () {
-      console.log(this.$router);
-      this.$router.options.routes.splice(this.$router.options.routes.findIndex(element => element.name == "Expansion"), 1);
-    },
   },
 };
 </script>
