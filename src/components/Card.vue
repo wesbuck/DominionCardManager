@@ -24,7 +24,7 @@
       </div>
       <div class="card-body">
         <p
-          class="card-text text-center mt-2"
+          class="card-text text-center"
           v-html="new_lines(card.card_text)"
         ></p>
       </div>
