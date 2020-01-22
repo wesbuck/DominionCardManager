@@ -28,7 +28,10 @@
           v-html="new_lines(card.card_text)"
         ></p>
       </div>
-      <div class="card-footer text-right">
+      <div
+        v-if="card.is_kingdom_card"
+        class="card-footer text-right"
+      >
         <button
           v-if="toggles"
           type="button"
