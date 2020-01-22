@@ -29,7 +29,7 @@
         ></p>
       </div>
       <div
-        v-if="card.is_kingdom_card"
+        v-if="card.is_kingdom_card || toggles"
         class="card-footer text-right"
       >
         <button
@@ -52,7 +52,7 @@
           <span class="fas fa-minus"></span>
         </button>
         <button
-          v-else
+          v-else-if="card.is_kingdom_card"
           type="button"
           class="btn btn-success"
           aria-label="Add Card to Custom Set"
