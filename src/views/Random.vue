@@ -11,13 +11,11 @@
 <script>
 import axios from "axios";
 import Card from "@/components/Card.vue";
-import Header from "@/components/Header.vue";
 
 export default {
   name: "Random",
   components: {
     Card,
-    Header,
   },
   data () {
     return {

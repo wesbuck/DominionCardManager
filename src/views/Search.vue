@@ -15,14 +15,12 @@
 import axios from "axios";
 import Card from "@/components/Card.vue";
 import SearchBar from "@/components/SearchBar.vue";
-import Header from "@/components/Header.vue";
 
 export default {
   name: "List",
   components: {
     Card,
     SearchBar,
-    Header,
   },
   data () {
     return {
