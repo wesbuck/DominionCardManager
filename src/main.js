@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from '@/App.vue'
 import router from '@/router'
+import store from '@/store';
 import './../node_modules/jquery/dist/jquery.slim';
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './../node_modules/bootstrap/dist/js/bootstrap.bundle';
@@ -10,6 +11,7 @@ Vue.prototype.$endpointURL = 'https://api.gameofboards.com'
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
 

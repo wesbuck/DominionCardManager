@@ -4,6 +4,7 @@ import Home from "@/views/Home.vue";
 import List from "@/views/List.vue";
 import Search from "@/views/Search.vue";
 import CardSet from "@/views/CardSet.vue";
+import CustomSet from "@/views/CustomSet.vue";
 import Expansion from "@/views/Expansion.vue";
 
 Vue.use(VueRouter);
@@ -39,6 +40,14 @@ const routes = [
     component: CardSet,
     meta: {
       title: "Set of 10 Cards",
+    },
+  },
+  {
+    path: "/customset",
+    name: "Custom Set",
+    component: CustomSet,
+    meta: {
+      title: "Custom Card Set",
     },
   },
   {

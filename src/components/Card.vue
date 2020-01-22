@@ -3,43 +3,68 @@
     <div
       class="card h-100"
       :class="card.set_name"
-      style="width: 15.9rem;"
     >
       <div
         class="card-header"
-        align="left"
+        :class="formatTypeName(card.type)"
       >
-        <h5 class="card-title"><span class="badge badge-secondary">{{card.cost}}</span> {{card.card_name}}</h5>
+        <div class="row">
+          <div class="col-9">
+            <h5 class="card-title">
+              {{card.card_name}}
+            </h5>
+          </div>
+          <div class="col-3 text-right">
+            <h5><span class="badge badge-secondary">{{card.cost}}</span></h5>
+          </div>
+        </div>
+        <h6 class="card-subtitle">
+          <em>{{card.type}}</em>
+        </h6>
       </div>
-      <div class="card-body text-center">
+      <div class="card-body">
         <p
-          class="card-text"
+          class="card-text text-center mt-2"
           v-html="new_lines(card.card_text)"
         ></p>
       </div>
-      <div
-        class="card-footer"
-        :class="formatTypeName(card.type)"
-        align="left"
-      >
-        <h6 class="card-subtitle">
-          {{card.type}}
-          <button
-            v-if="toggles"
-            type="button"
-            class="close"
-            aria-label="Close"
-            @click="getNewCard(card.card_name)"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </h6>
+      <div class="card-footer text-right">
+        <button
+          v-if="toggles"
+          type="button"
+          class="btn btn-danger mr-2"
+          aria-label="Replace Card"
+          @click="getNewCard(card.card_name)"
+        >
+          <span class="fas fa-redo-alt"></span>
+        </button>
+
+        <button
+          v-if="allCards.find(item => item.uuid === card.uuid)"
+          type="button"
+          class="btn btn-danger"
+          aria-label="Remove Card from Custom Set"
+          @click="removeCard(card.uuid)"
+        >
+          <span class="fas fa-minus"></span>
+        </button>
+        <button
+          v-else
+          type="button"
+          class="btn btn-success"
+          aria-label="Add Card to Custom Set"
+          @click="addCard(card.uuid)"
+        >
+          <span class="fas fa-plus"></span>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "Card",
   props: {
@@ -47,6 +72,7 @@ export default {
     toggles: Boolean,
   },
   methods: {
+    ...mapActions(['addCard', "removeCard"]),
     new_lines (text) {
       return text.replace(/\\n/g, "<div style=\"line-height:6px;\">&nbsp</div>").replace(/\\d/g, "<div style=\"border-bottom: 1px solid black; line-height: 12px; margin-bottom: 10px;\">&nbsp</div>");
     },
@@ -62,21 +88,17 @@ export default {
       return type.substring(0, n != -1 ? n : type.length).trim() + "-type";
     },
   },
+  computed: mapGetters(["allCards"]),
 };
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/main.scss";
 
-h5.card-title {
-  margin-bottom: 0px;
+.card {
+  width: 15.9rem;
 }
-h6.card-subtitle {
-  margin-top: 0px;
-}
-button.close {
-  color: red;
-}
+
 p.card-text {
   font-size: 90%;
 }
