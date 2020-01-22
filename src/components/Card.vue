@@ -9,12 +9,15 @@
         :class="formatTypeName(card.type)"
       >
         <div class="row">
-          <div class="col-9">
+          <div :class="(showCost) ? 'col-9' : 'col'">
             <h5 class="card-title">
               {{card.card_name}}
             </h5>
           </div>
-          <div class="col-3 text-right">
+          <div
+            class="col-3 text-right"
+            v-if="showCost"
+          >
             <h5><span class="badge badge-secondary">{{card.cost}}</span></h5>
           </div>
         </div>
@@ -73,6 +76,11 @@ export default {
   props: {
     card: Object,
     toggles: Boolean,
+  },
+  data () {
+    return {
+      showCost: this.card.cost !== '0',
+    };
   },
   methods: {
     ...mapActions(['addCard', "removeCard"]),
