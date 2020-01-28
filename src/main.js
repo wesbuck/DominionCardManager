@@ -7,7 +7,7 @@ import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './../node_modules/bootstrap/dist/js/bootstrap.bundle';
 
 Vue.config.productionTip = false
-Vue.prototype.$endpointURL = 'https://api.gameofboards.com'
+Vue.prototype.$endpointURL = 'https://dominioncardapi.pythonanywhere.com'
 
 new Vue({
   router,
