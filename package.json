@@ -40,7 +40,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.14.1",
-    "popper.js": "^1.16.0",
+    "popper.js": "^1.16.1",
     "prettier-eslint": "^11.0.0",
     "sass-loader": "^8.0.0",
     "vue-template-compiler": "^2.6.12",
