@@ -33,5 +33,22 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Maintenance
+
+### Check for outdated packages
+Run `npm outdated` to check which packages have new major versions that need to be updated.
+
+### Update all packages
+To update all packages to a new major version, install the npm-check-updates package globally:
+```bash
+npm install -g npm-check-updates
+```
+then run it:
+```bash
+ncu -u
+```
+This will upgrade all the version hints in `package.json` so npm can install the new major version. 
+
+You are now ready to `npm update` (or `npm install` if not already installed) to fetch the latest files and update `package-lock.json`.
+
+Ensure everything works before pushing the changes.
